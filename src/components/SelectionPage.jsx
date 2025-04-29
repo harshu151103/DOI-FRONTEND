@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getOptions, calculateDOI } from '../api';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import MultiSelectDropdown from './MultiSelectDropdown';
 
 const SelectionPage = ({ setResults }) => {
@@ -9,6 +9,10 @@ const SelectionPage = ({ setResults }) => {
   const [selectedCities, setSelectedCities] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // 👇 Extract numberOfDays from route state
+  const numberOfDays = location.state?.numberOfDays || 0;
 
   useEffect(() => {
     async function fetchOptions() {
@@ -31,7 +35,8 @@ const SelectionPage = ({ setResults }) => {
     };
     const res = await calculateDOI(payload);
     setResults(res);
-    navigate('/results');
+    // 👇 Pass numberOfDays along to the /results route
+    navigate('/results', { state: { numberOfDays } });
   };
 
   return (
