@@ -5,7 +5,6 @@ import { uploadFiles } from '../api';
 const FileUpload = () => {
   const [salesFile, setSalesFile] = useState(null);
   const [stockFile, setStockFile] = useState(null);
-  const [days, setDays] = useState(30);
   const navigate = useNavigate();
 
   const handleUpload = async () => {
@@ -13,8 +12,14 @@ const FileUpload = () => {
       alert('Please upload both files!');
       return;
     }
-    await uploadFiles(salesFile, stockFile, days);
-    navigate('/select');
+
+    try {
+      const response = await uploadFiles(salesFile, stockFile);
+      const numberOfDays = response.number_of_days;
+      navigate('/select', { state: { numberOfDays } });
+    } catch (error) {
+      alert('Upload failed. Please try again.');
+    }
   };
 
   return (
@@ -28,15 +33,6 @@ const FileUpload = () => {
         <div className="file-section">
           <label>Upload Stock File:</label>
           <input type="file" onChange={(e) => setStockFile(e.target.files[0])} />
-        </div>
-        <div className="file-section">
-          <label>Number of Days:</label>
-          <input
-            type="number"
-            placeholder="Enter number of days"
-            value={days}
-            onChange={(e) => setDays(e.target.value)}
-          />
         </div>
         <button onClick={handleUpload}>Upload and Proceed</button>
       </div>
