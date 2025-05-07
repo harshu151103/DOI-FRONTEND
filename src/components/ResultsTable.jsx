@@ -2,11 +2,11 @@ import React from 'react';
 
 const ResultsTable = ({ results, numberOfDays }) => {
   return (
-    <div className="results-page">
+    // <div className="results-page">
       <div className="results-box">
-        <h2 className="results-heading">
+        {/* <h2 className="results-heading">
           DOI Table for the Last {numberOfDays} {numberOfDays === 1 ? 'Day' : 'Days'}
-        </h2>
+        </h2> */}
         <div className="table-wrapper">
           <table className="results-table">
             <thead>
@@ -28,7 +28,7 @@ const ResultsTable = ({ results, numberOfDays }) => {
           </table>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
