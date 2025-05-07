@@ -4,11 +4,11 @@ import FileUpload from './components/FileUpload';
 import SelectionPage from './components/SelectionPage';
 import ResultsTable from './components/ResultsTable';
 
-const ResultsWrapper = ({ results }) => {
-  const location = useLocation();
-  const numberOfDays = location.state?.numberOfDays || 0;
-  return <ResultsTable results={results} numberOfDays={numberOfDays} />;
-};
+// const ResultsWrapper = ({ results }) => {
+//   const location = useLocation();
+//   const numberOfDays = location.state?.numberOfDays || 0;
+//   return <ResultsTable results={results} numberOfDays={numberOfDays} />;
+// };
 
 const App = () => {
   const [results, setResults] = useState([]);
@@ -18,7 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<FileUpload />} />
         <Route path="/select" element={<SelectionPage setResults={setResults} />} />
-        <Route path="/results" element={<ResultsWrapper results={results} />} />
+        // <Route path="/results" element={<ResultsWrapper results={results} />} />
       </Routes>
     </Router>
   );
