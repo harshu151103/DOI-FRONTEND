@@ -187,7 +187,7 @@ input[type="number"] {
 
 /* Larger gap when at top */
 .gap-large {
-  gap: 10rem;
+  gap: 3rem;
 }
 
 /* Dropdowns and buttons */
@@ -199,6 +199,7 @@ input[type="number"] {
   background-color: #fff;
   cursor: pointer;
 }
+
 
 .options-row select{
   padding: 0.5rem 1rem;
@@ -287,6 +288,23 @@ input[type="number"] {
   overflow-x: visible;
 }
 
+.results-box-pan-india {
+  /* margin-top: 50px; */
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 130%;
+  max-width: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  /* overflow: hidden;  */
+  overflow-x: visible;
+}
+
 .results-heading {
   font-size: 30px;
   font-weight: bold;
@@ -301,6 +319,15 @@ input[type="number"] {
   max-height: 70vh;
   /* max-width: 80%; */
   width: auto;  
+  position: relative;
+}
+
+.results-box-pan-india .table-wrapper {
+  overflow-y: auto;
+  overflow-x: visible;  
+  max-height: 70vh;
+  /* max-width: 80%; */
+  width: 100%;  
   position: relative;
 }
 
@@ -331,4 +358,3 @@ input[type="number"] {
 .results-table tbody tr:hover {
   background-color: #f1f1f1;
   transition: background-color 0.2s;
-}
