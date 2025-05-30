@@ -18,7 +18,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<FileUpload />} />
         <Route path="/select" element={<SelectionPage setResults={setResults} />} />
-        // <Route path="/results" element={<ResultsWrapper results={results} />} />
       </Routes>
     </Router>
   );
