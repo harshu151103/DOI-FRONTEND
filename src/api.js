@@ -22,3 +22,8 @@ export const calculateDOI = async (selection) => {
   return response.data;
 };
 
+export const fetchPanIndiaDOI = async (payload) => {
+  const response = await axios.post(`${BASE_URL}/pan-india-doi`, payload);
+  return response.data;
+};
+
