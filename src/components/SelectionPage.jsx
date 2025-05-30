@@ -58,7 +58,7 @@ const SelectionPage = ({ setResults }) => {
   }, [selectedCities, selectedProduct]);
 
   const handleTopBottomDOI = async () => {
-    const response = await fetch("http://localhost:8000/top-bottom-doi/", {
+    const response = await fetch("https://doi-backend.onrender.com/top-bottom-doi/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
